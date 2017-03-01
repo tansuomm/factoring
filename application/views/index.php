@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         menu:[{text:'新闻管理',
                 items:[
                     {id:'2a',text:'栏目管理',href:'<?php echo site_url("category/index") ?>'},
-                    {id:'2b',text:'文章管理',href:'Node/index.html'},
+                    {id:'2b',text:'文章管理',href:'<?php echo site_url("article/index")?>'},
                 ]
             }]
         },{id:'3',

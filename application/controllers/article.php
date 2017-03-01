@@ -1,6 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Article extends MY_Controller{
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('article_model', 'art');
+	}
 	/**
 	 * 查看文章
 	 */
@@ -12,7 +16,7 @@ class Article extends MY_Controller{
 		$perPage = 3;
 
 		//配置项设置
-		$config['base_url'] = site_url('admin/article/index');
+		$config['base_url'] = site_url('article/index');
 		$config['total_rows'] = $this->db->count_all_results('article');
 		$config['per_page'] = $perPage;
 		$config['uri_segment'] = 3;
@@ -29,11 +33,11 @@ class Article extends MY_Controller{
 		$this->db->limit($perPage, $offset);
 
 
-		$this->load->model('article_model', 'art');
+		
 		$data['article'] = $this->art->article_category();
 
 		// p($data);die;
-		$this->load->view('admin/check_article.html', $data);
+		$this->load->view('check_article.html', $data);
 	}
 	/**
 	 * 发表文章模板显示
@@ -43,7 +47,7 @@ class Article extends MY_Controller{
 		$data['category'] = $this->cate->check();
 
 		$this->load->helper('form');
-		$this->load->view('admin/article.html', $data);
+		$this->load->view('article.html', $data);
 	}
 
 	/**
@@ -114,13 +118,13 @@ class Article extends MY_Controller{
 				);	
 			// p($data);die;
 			$this->art->add($data);
-			success('admin/article/index', '发表成功');
+			success('article/index', '发表成功');
 		}else {
 			$this->load->model('category_model', 'cate');
 			$data['category'] = $this->cate->check();
 
 			$this->load->helper('form');
-			$this->load->view('admin/article.html',$data);
+			$this->load->view('article.html',$data);
 		}
 	}
 
@@ -129,7 +133,7 @@ class Article extends MY_Controller{
 	 */
 	public function edit_article(){
 		$this->load->helper('form');
-		$this->load->view('admin/edit_article.html');
+		$this->load->view('edit_article.html');
 	}
 
 
@@ -144,11 +148,17 @@ class Article extends MY_Controller{
 			echo '数据库操作';
 		} else {
 			$this->load->helper('form');
-			$this->load->view('admin/edit_article.html');
+			$this->load->view('edit_article.html');
 		}
 	}
-
-
+	/**
+	 * 删除文章
+	 */
+	public function del(){
+		$aid = $this->uri->segment(3);
+		$this->art->del($aid);
+		success('article/index', '删除成功');
+	}
 
 
 

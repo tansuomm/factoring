@@ -1,77 +1,107 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'style/admin/css/public.css' ?>">
-	<script type="text/javascript" src="<?php echo base_url() ?>org/ueditor/ueditor.all.min.js"></script>
-	<script type="text/javascript">
+    <title>文章编辑</title>
+    <meta charset="UTF-8">
+    
+ 
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/style.css" />
+    
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+        .mpx{
+        	width: 210px;
+        }
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form action="<?php echo site_url('article/send') ?>" method="POST" enctype="multipart/form-data" class="definewidth m20">
+<table class="table table-bordered table-hover definewidth m10">
+	<caption><h2>发表文章</h2></caption>
+	<tr>
+		<td class="tableleft">标题</td>
+		<td><input type="text" name="title" value="<?php echo set_value('title') ?>"/>
+		<?php echo form_error('title', '<span>', '</span>') ?>
+		</td>
+	</tr>
+	<tr>
+		<td class="tableleft">类型</td>
+		<td>
+			<input type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 公司新闻
+			<input type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 行业新闻
+		</td>
+	</tr>
+	<tr>
+		<td class="tableleft">栏目</td>
+		<td>
+			<select name="cid" id="" class="mpx">
+			<?php foreach($category as $v): ?>
+			<option value="<?php echo $v['cid'] ?>"<?php echo set_select('cid', $v['cid']) ?>><?php echo $v['cname'] ?></option>
+			<?php endforeach ?>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="tableleft">缩略图</td>
+		<td>
+			<input type="file" name="thumb"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="tableleft">摘要</td>
+		<td>
+			<textarea name="info" id=""><?php echo set_value('info') ?></textarea><?php echo form_error('info', '<span>', '</span>') ?>
+		</td>
+	</tr>
+	<tr>
+		<td class="tableleft">内容</td>
+		<td>
+			<textarea name="content" id="content"><?php echo set_value('content') ?></textarea>
+				<?php echo form_error('content', '<span>', '</span>') ?>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" ><button type="submit" class="btn btn-primary" type="button">发布</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+		</td>
+	</tr>
+
+</table>
+</form>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/ckform.js"></script>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/common.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>org/ueditor/ueditor.all.min.js"></script>
+<script>
+    $(function () {       
+		$('#backid').click(function(){
+				window.location.href="<?php echo site_url("article/index")?>";
+		 });
 		window.UEDITOR_HOME_URL = "<?php echo base_url() ?>org/ueditor/";
 		window.onload = function(){
 			window.UEDITOR_CONFIG.initialFrameWidth = 900;
 			window.UEDITOR_CONFIG.initialFrameHeight = 600;
 			UE.getEditor('content');
 		}
-	</script>
-	<script type="text/javascript" src="<?php echo base_url() ?>org/ueditor/ueditor.config.js"></script>
-	<title>Document</title>
-	<style type="text/css">
-		span{
-			color: #f00;
-		}
-	</style>
-</head>
-<body>
-	<form action="<?php echo site_url('admin/article/send') ?>" method="POST" enctype="multipart/form-data">
-	<table class="table">
-		<tr >
-			<td class="th" colspan="10">发表文章</td>
-		</tr>
-		<tr>
-			<td>标题</td>
-			<td><input type="text" name="title" value="<?php echo set_value('title') ?>"/>
-			<?php echo form_error('title', '<span>', '</span>') ?>
-			</td>
-		</tr>
-		<tr>
-			<td>类型</td>
-			<td>
-				<input type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 普通
-				<input type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 热门
-			</td>
-		</tr>
-		<tr>
-			<td>栏目</td>
-			<td>
-				<select name="cid" id="">
-					<?php foreach($category as $v): ?>
-					<option value="<?php echo $v['cid'] ?>"<?php echo set_select('cid', $v['cid']) ?>><?php echo $v['cname'] ?></option>
-					<?php endforeach ?>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>缩略图</td>
-			<td>
-				<input type="file" name="thumb"/>
-			</td>
-		</tr>
-		<tr>
-			<td>摘要</td>
-			<td>
-				<textarea name="info" id="" style="width:550px;height:160px;"><?php echo set_value('info') ?></textarea><?php echo form_error('info', '<span>', '</span>') ?>
-			</td>
-		</tr>
-		<tr>
-			<td>内容</td>
-			<td>
-				<textarea name="content" id="content" style="width:550px;height:500px;"><?php echo set_value('content') ?></textarea>
-				<?php echo form_error('content', '<span>', '</span>') ?>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="10"><input type="submit" class="input_button" value="发布"/></td>
-		</tr>
-	</table>
-	</form>
+    });
+</script>
+<script type="text/javascript" src="<?php echo base_url() ?>org/ueditor/ueditor.config.js"></script>
 </body>
 </html>

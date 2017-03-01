@@ -33,10 +33,6 @@ class Category extends MY_Controller{
 		$status = $this->form_validation->run('cate');
 
 		if($status){
-			// echo "数据库操作";
-			// echo $_POST['abc'];die;
-			// var_dump($this->input->post('abc'));die;
-
 			$data = array(
 				'cname'	=> $this->input->post('cname')
 				);
@@ -67,20 +63,23 @@ class Category extends MY_Controller{
 		$this->load->library('form_validation');
 		$status = $this->form_validation->run('cate');
 
-		if($status){
-
 			$cid = $this->input->post('cid');
 			$cname = $this->input->post('cname');
+		if($status){
 
-			$data = array(
+			$data = array(            
 				'cname'	=> $cname
 				);
 
 			$data['category'] = $this->cate->update_cate($cid, $data);
 			success('category/index', '修改成功');
 		} else {
+			$arr = array(
+					'cid' => $cid,
+					'cname' => $cname
+				);
 			$this->load->helper('form');
-			$this->load->view('edit_cate.html');
+			$this->load->view('edit_cate.html',$arr);
 		}
 	}
 

@@ -58,6 +58,12 @@ class Article_model extends CI_Model{
 	}
 
 
+	/**
+	 * 删除文章
+	 */
+	public function del($aid){
+		$this->db->delete('article', array('aid'=>$aid));
+	}
 
 
 

@@ -1,51 +1,94 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . '/style/admin/css/public.css' ?>">
-	<title>Document</title>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/style.css" />
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/bootstrap.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/ckform.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/common.js"></script>
+ 
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
 </head>
 <body>
-	<table class="table">
-		<tr>
-			<td class="th" colspan="10">查看文章</td>
-		</tr>
-
-		<tr>
-			<td>AID</td>
-			<td>标题</td>
-			<td>栏目</td>
-			<td>发表时间</td>
-			<td>操作</td>
-		</tr>
-		
-		<?php foreach($article as $v): ?>
+<form class="form-inline definewidth m20" action="index.html" method="get">
+   <button type="button" class="btn btn-success" id="addnew">发表文章</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+    <tr>
+        <th>文章编号</th>
+        <th>文章标题</th>
+        <th>栏目名称</th>
+        <th>发表时间</th>
+        <th>管理操作</th>
+    </tr>
+    </thead>
+	    <?php foreach($article as $v): ?>
 		<tr>
 			<td><?php echo $v['aid'] ?></td>
 			<td><?php echo $v['title'] ?></td>
 			<td><?php echo $v['cname'] ?></td>
-			<td><?php echo date('m-d',$v['time']) ?></td>
+			<td><?php echo date('y-m-d',$v['time']) ?></td>
 			
 			<td>
-				[<a href="">编辑</a>]
-				[<a href="">删除</a>]
+				[<a href="<?php echo site_url('article/edit_article/' . $v['aid']) ?>">编辑</a>]
+				[<a href="javascript:void(0)" onclick="del('<?php echo $v['aid'] ?>')">删除</a>]
 			</td>
 		</tr>
 		<?php endforeach ?>
-	</table>
-	<div class="page">
+</table>
+<div class="inline pull-right page">
 		<?php echo $links ?>
-	</div>
+</div>
+<script>
+    $(function () {
+        
+		$('#addnew').click(function(){
+
+				window.location.href="<?php echo site_url('article/send_article') ?>";
+		 });
 
 
+    });
 
+	function del(id)
+	{
+		
+		
+		if(confirm("确定要删除吗？"))
+		{
+		
+			var url = "<?php echo site_url('article/del/') ?>"+id;
+			
+			window.location.href=url;		
+		
+		}
 
-
-
-
-
-
-
+	}
+</script>
 
 </body>
 </html>
