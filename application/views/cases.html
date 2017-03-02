@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>文章</title>
+    <title>案例</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
@@ -33,29 +33,24 @@
     </style>
 </head>
 <body>
-<form class="form-inline definewidth m20" action="index.html" method="get">
-   <button type="button" class="btn btn-success" id="addnew">发表文章</button>
-</form>
 <table class="table table-bordered table-hover definewidth m10" >
     <thead>
     <tr>
-        <th>文章编号</th>
-        <th>文章标题</th>
-        <th>栏目名称</th>
+        <th>案例编号</th>
+        <th>案例标题</th>
         <th>发表时间</th>
         <th>管理操作</th>
     </tr>
     </thead>
-	    <?php foreach($article as $v): ?>
+	    <?php foreach($cases as $v): ?>
 		<tr>
-			<td><?php echo $v['aid'] ?></td>
+			<td><?php echo $v['caid'] ?></td>
 			<td><?php echo $v['title'] ?></td>
-			<td><?php echo $v['cname'] ?></td>
 			<td><?php echo date('y-m-d',$v['time']) ?></td>
 			
 			<td>
-				[<a href="<?php echo site_url('article/edit_article/' . $v['aid']) ?>">编辑</a>]
-				[<a href="javascript:void(0)" onclick="del('<?php echo $v['aid'] ?>')">删除</a>]
+				[<a href="<?php echo site_url('cases/edit_cases/' . $v['caid']) ?>">编辑</a>]
+				[<a href="javascript:void(0)" onclick="del('<?php echo $v['caid'] ?>')">删除</a>]
 			</td>
 		</tr>
 		<?php endforeach ?>
@@ -64,24 +59,11 @@
 		<?php echo $links ?>
 </div>
 <script>
-    $(function () {
-        
-		$('#addnew').click(function(){
-
-				window.location.href="<?php echo site_url('article/send_article') ?>";
-		 });
-
-
-    });
-
 	function del(id)
 	{
-		
-		
 		if(confirm("确定要删除吗？"))
 		{
-		
-			var url = "<?php echo site_url('article/del/') ?>"+id;
+			var url = "<?php echo site_url('cases/del/') ?>"+id;
 			
 			window.location.href=url;		
 		

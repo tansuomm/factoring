@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>编辑文章</title>
+	<title>编辑案例</title>
 	<meta charset="UTF-8">
  	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
@@ -26,37 +26,21 @@
     </style>
 </head>
 <body>
-<form action="<?php echo site_url('article/edit')?>" method="post" class="definewidth m20" enctype="multipart/form-data">
-	<input type="hidden" name="aid" value="<?php if(isset($article)){echo $article[0]['aid'];}else{echo $aid;}?>" />
+<form action="<?php echo site_url('cases/edit')?>" method="post" class="definewidth m20" enctype="multipart/form-data">
+	<input type="hidden" name="caid" value="<?php if(isset($cases)){echo $cases[0]['caid'];}else{echo $caid;}?>" />
 	<table class="table table-bordered table-hover definewidth m10">
-	    <caption><h2>编辑文章</h2></caption>
+	    <caption><h2>编辑案例</h2></caption>
 	    <tr>
-            <td width="10%" class="tableleft">文章标题</td>
-            <td><input type="text" name="title" value="<?php if(isset($article)){echo $article[0]['title'];}else{echo $title;}?>" <?php echo set_value('title') ?>/>
+            <td width="10%" class="tableleft">案例标题</td>
+            <td><input type="text" name="title" value="<?php if(isset($cases)){echo $cases[0]['title'];}else{echo $title;}?>" <?php echo set_value('title') ?>/>
 			<?php echo form_error('title', '<span>', '</span>') ?>
 			</td>
 	    </tr> 
 	    <tr>
 			<td class="tableleft">类型</td>
 			<td>
-			<input <?php if(isset($article)){if($article[0]['type']==0){echo "checked";}}else{if($type==0){echo "checked";}}?> type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 公司新闻
-			<input <?php if(isset($article)){if($article[0]['type']==1){echo "checked";}}else{if($type==0){echo "checked";}}?> type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 行业新闻
-			</td>
-		</tr>
-		<tr>
-			<td class="tableleft">栏目</td>
-			<td>
-			<select name="cid" id="">
-			<?php foreach($cnames as $c): ?>
-				$c['cid']==$article[0]['cid'] || $c['cid']==$cid
-			<option value="<?php echo $c['cid'];?>" <?php if(isset($article)){
-			if($c['cid']==$article[0]['cid']){echo("selected");}}else if($c['cid']==$cid){echo("selected");}?>
-			<?php echo set_select('cid', $c['cid']); ?>
-			>
-				<?php echo $c['cname']; ?>
-			</option>
-			<?php endforeach ?>
-			</select>
+			<input <?php if(isset($cases)){if($cases[0]['type']==0){echo "checked";}}else{if($type==0){echo "checked";}}?> type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 常规案例
+			<input <?php if(isset($cases)){if($cases[0]['type']==1){echo "checked";}}else{if($type==0){echo "checked";}}?> type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 科技案例
 			</td>
 		</tr>
 		<tr>
@@ -66,15 +50,9 @@
 		</td>
 		</tr>
 		<tr>
-		<td>摘要</td>
-		<td>
-			<textarea name="info" id="" style="width:550px;"><?php echo set_value('info') ?><?php if(isset($article)){echo $article[0]['info'];}else{echo $info;}?></textarea><?php echo form_error('info', '<span>', '</span>'); ?>
-		</td>
-		</tr>
-		<tr>
 			<td>内容</td>
 			<td>
-				<textarea name="content" id="" style="width:550px;height:500px;"><?php echo set_value('content') ?><?php if(isset($article)){echo $article[0]['content'];}else{echo $content;}?></textarea>
+				<textarea name="content" id="" style="width:550px;height:500px;"><?php echo set_value('content') ?><?php if(isset($cases)){echo $cases[0]['content'];}else{echo $content;}?></textarea>
 				<?php echo form_error('content', '<span>', '</span>'); ?>
 			</td>
 		</tr>
@@ -93,7 +71,7 @@
 <script>
 	$(function () {       
 		$('#backid').click(function(){
-			window.location.href="<?php echo site_url('article/index') ?>";
+			window.location.href="<?php echo site_url('cases/index') ?>";
 		});
 
 	});

@@ -29,6 +29,23 @@ $config = array(
 				)
 
 		),
+	'cases'	=>	array(
+			array(
+				'field'	=>	'title',
+				'label'	=> '标题',
+				'rules'	=> 'required|min_length[5]'
+				),
+			array(
+				'field'	=>	'type',
+				'label'	=> '类型',
+				'rules'	=> 'required|integer'
+				),
+			array(
+				'field'	=>	'content',
+				'label'	=> '内容',
+				'rules'	=> 'required|max_length[2000]'
+				)
+		),
 	'cate'	=> array(
 			array(
 				'field'	=> 'cname',

@@ -71,8 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         homePage : '3a', 
         menu:[{text:'案例管理',
                 items:[
-                    {id:'3a',text:'查看案例',href:'Node/index.html'},
-                    {id:'3b',text:'添加案例',href:'Node/index.html'},
+                    {id:'3a',text:'查看案例',href:'<?php echo site_url("cases/index") ?>'},
+                    {id:'3b',text:'添加案例',href:'<?php echo site_url("cases/send_cases") ?>'},
                 ]
             }]
         },{id:'4',
@@ -89,8 +89,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         homePage : '5a', 
         menu:[{text:'系统管理',
                 items:[
-                    {id:'5a',text:'系统信息',href:'Node/index.html'},
-                    {id:'5b',text:'密码修改',href:'Node/index.html'},
+                    {id:'5a',text:'系统信息',href:'<?php echo site_url("admin/copy") ?>'},
+                    {id:'5b',text:'密码修改',href:'<?php echo site_url("admin/change") ?>'},
                 ]
             }]
         }];

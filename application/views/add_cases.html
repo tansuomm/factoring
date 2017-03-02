@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>发表文章</title>
+    <title>发表案例</title>
     <meta charset="UTF-8">
-    
- 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/style.css" />
@@ -27,47 +25,28 @@
                 padding-right: 5px;
             }
         }
-
-
     </style>
 </head>
 <body>
-<form action="<?php echo site_url('article/send') ?>" method="POST" enctype="multipart/form-data" class="definewidth m20">
+<form action="<?php echo site_url('cases/send') ?>" method="POST" enctype="multipart/form-data" class="definewidth m20">
 <table class="table table-bordered table-hover definewidth m10">
-	<caption><h2>发表文章</h2></caption>
 	<tr>
 		<td class="tableleft">标题</td>
-		<td><input placeholder="文章标题" type="text" name="title" value="<?php echo set_value('title') ?>"  />
+		<td><input placeholder="案例标题" type="text" name="title" value="<?php echo set_value('title') ?>"  />
 		<?php echo form_error('title', '<span>', '</span>') ?>
 		</td>
 	</tr>
 	<tr>
 		<td class="tableleft">类型</td>
 		<td>
-			<input type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 公司新闻
-			<input type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 行业新闻
+			<input type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 常规案例
+			<input type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 科技案例
 		</td>
 	</tr>
 	<tr>
-		<td class="tableleft">栏目</td>
-		<td>
-			<select name="cid" id="" class="mpx">
-			<?php foreach($category as $v): ?>
-			<option value="<?php echo $v['cid'] ?>"<?php echo set_select('cid', $v['cid']) ?>><?php echo $v['cname'] ?></option>
-			<?php endforeach ?>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td class="tableleft">缩略图</td>
+		<td class="tableleft">图片</td>
 		<td>
 			<input type="file" name="thumb"/>
-		</td>
-	</tr>
-	<tr>
-		<td class="tableleft">摘要</td>
-		<td>
-			<textarea placeholder="文章摘要" name="info" id=""><?php echo set_value('info') ?></textarea><?php echo form_error('info', '<span>', '</span>') ?>
 		</td>
 	</tr>
 	<tr>
@@ -78,7 +57,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" ><button type="submit" class="btn btn-primary" type="button">发布</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+		<td colspan="2" ><button type="submit" class="btn btn-success" type="button">发布</button>
 		</td>
 	</tr>
 
@@ -91,9 +70,6 @@
 <script type="text/javascript" src="<?php echo base_url() ?>org/ueditor/ueditor.all.min.js"></script>
 <script>
     $(function () {       
-		$('#backid').click(function(){
-				window.location.href="<?php echo site_url("article/index")?>";
-		 });
 		window.UEDITOR_HOME_URL = "<?php echo base_url() ?>org/ueditor/";
 		window.onload = function(){
 			window.UEDITOR_CONFIG.initialFrameWidth = 900;

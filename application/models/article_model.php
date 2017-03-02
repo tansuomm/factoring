@@ -56,7 +56,12 @@ class Article_model extends CI_Model{
 		$data = $this->db->join('category', 'article.cid=category.cid')->get_where('article', array('aid'=>$aid))->result_array();
 		return $data;
 	}
-
+	/**
+	* 更新文章
+	*/
+	public function update_art($aid,$data){
+		$this->db->update('article', $data, array('aid'=>$aid));
+	}
 
 	/**
 	 * 删除文章

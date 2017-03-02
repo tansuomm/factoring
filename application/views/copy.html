@@ -1,47 +1,72 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<title></title>
-	<link rel="stylesheet" href="<?php echo base_url() . 'style/admin/' ?>css/admin.css" />
+    <title>系统信息</title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+        .tab{
+        	width: 70%;
+        	margin:80px auto;
+        	font-size: 20px;
+        }
+        .tab td,th{
+        	text-align: center !important;
+        }
+        .tab th{
+        	background-color:#eaeaea;
+        }
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
-	<table class="table">
+
+	<table width="50%" class="table table-hover table-bordered tab" align="center">
 		<tr>
-			<td colspan='2' class="th"><span class="span_people">&nbsp</span>欢迎光临管理后台</td>
+			<th colspan='2'>欢迎光临管理后台</th>
 		</tr>
-		<tr>
+		<tr class="active">
 			<td>用户名</td>
 			<td><?php echo $this->session->userdata('username') ?></td>
 		</tr>
-		<tr>
+		<tr class="info">
 			<td>登录时间</td>
-			<td><?php echo date('m-d',$this->session->userdata('logintime')) ?></td>
+			<td><?php echo date('y-m-d h:i',$this->session->userdata('logintime')) ?></td>
 		</tr>
-		<tr>
+		<tr class="danger">
 			<td>客户端IP</td>
 			<td><?php echo $this->input->ip_address() ?></td>
 		</tr>
-		<tr>
-			<td colspan='2' class="th"><span class="span_server" style="float:left">&nbsp</span>服务器信息</td>
+		<tr class="success">
+			<td colspan='2'>服务器信息</td>
 		</tr>
-		<tr>
+		<tr class="danger">
 			<td>服务器环境</td>
 			<td><?php echo $this->input->server('SERVER_SOFTWARE') ?></td>
 		</tr>
-		<tr>
+		<tr class="info">
 			<td>PHP版本</td>
 			<td><?php echo PHP_VERSION ?></td>
 		</tr>
-		<tr>
+		<tr class="danger"> 
 			<td>服务器IP</td>
 			<td><?php echo $this->input->server('SERVER_ADDR') ?></td>
 		</tr>
-		<tr>
-			<td>数据库信息</td>
-			<td><?php echo mysql_get_server_info() ?></td>
-		</tr>
 
 </table>
+
 </body>
 </html>

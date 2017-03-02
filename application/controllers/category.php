@@ -63,8 +63,9 @@ class Category extends MY_Controller{
 		$this->load->library('form_validation');
 		$status = $this->form_validation->run('cate');
 
-			$cid = $this->input->post('cid');
-			$cname = $this->input->post('cname');
+		$cid = $this->input->post('cid');
+		$cname = $this->input->post('cname');
+
 		if($status){
 
 			$data = array(            
@@ -74,6 +75,7 @@ class Category extends MY_Controller{
 			$data['category'] = $this->cate->update_cate($cid, $data);
 			success('category/index', '修改成功');
 		} else {
+			//重新加载数据丢失so
 			$arr = array(
 					'cid' => $cid,
 					'cname' => $cname

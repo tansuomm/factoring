@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Article extends MY_Controller{
+class Cases extends MY_Controller{
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('article_model', 'art');
+		$this->load->model('cases_model', 'cases');
 	}
 	/**
-	 * 查看文章
+	 * 查看案例
 	 */
 	public function index(){
 		//后台设置后缀为空，否则分页出错
@@ -16,8 +16,8 @@ class Article extends MY_Controller{
 		$perPage = 5;
 
 		//配置项设置
-		$config['base_url'] = site_url('article/index');
-		$config['total_rows'] = $this->db->count_all_results('article');
+		$config['base_url'] = site_url('cases/index');
+		$config['total_rows'] = $this->db->count_all_results('cases');
 		$config['per_page'] = $perPage;
 		$config['uri_segment'] = 3;
 		$config['first_link'] = '第一页';
@@ -31,43 +31,31 @@ class Article extends MY_Controller{
 		// p($data);die;
 		$offset = $this->uri->segment(3);
 		$this->db->limit($perPage, $offset);
-
-
-		
-		$data['article'] = $this->art->article_category();
-		$this->load->view('check_article.html', $data);
+		$data['cases'] = $this->cases->cases();
+		$this->load->view('cases.html', $data);
 	}
 	/**
-	 * 发表文章模板显示
+	 * 发表案例模板显示
 	 */
-	public function send_article(){
-		$this->load->model('category_model', 'cate');
-		$data['category'] = $this->cate->check();
-
+	public function send_cases(){
 		$this->load->helper('form');
-		$this->load->view('article.html', $data);
+		$this->load->view('add_cases.html');
 	}
 
 	/**
-	 * 发表文章动作
+	 * 发表案例动作
 	 */
 	public function send(){
 
 		//载入表单验证类
 		$this->load->library('form_validation');
-		//设置规则
-		// $this->form_validation->set_rules('title', '文章标题', 'required|min_length[5]');
-		// $this->form_validation->set_rules('type', '类型', 'required|integer');
-		// $this->form_validation->set_rules('cid', '栏目', 'integer');
-		// $this->form_validation->set_rules('info', '摘要', 'required|max_length[155]');
-		// $this->form_validation->set_rules('content', '内容', 'required|max_length[2000]');
 		//执行验证
-		$status = $this->form_validation->run('article');
+		$status = $this->form_validation->run('cases');
 
 		if($status){
 			//文件上传------------------------
 			//配置
-			$config['upload_path'] = './uploads/';
+			$config['upload_path'] = './casepic/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size'] = '10000';
 			$config['file_name'] = time() . mt_rand(1000,9999);
@@ -103,38 +91,31 @@ class Article extends MY_Controller{
 				error('缩略图动作失败');
 			}
 
-			$this->load->model('article_model', 'art');
-
+			$this->load->model('cases_model', 'cases');
 			$data = array(
 				'title'	=> $this->input->post('title'),
 				'type'	=> $this->input->post('type'),
-				'cid'	=> $this->input->post('cid'),
 				'thumb'	=> $info['file_name'],
-				'info'	=> $this->input->post('info'),
 				'content'=> $this->input->post('content'),
 				'time'	=> time()
 				);	
 			// p($data);die;
-			$this->art->add($data);
-			success('article/index', '发表成功');
+			$this->cases->add($data);
+			success('cases/index', '发表成功');
 		}else {
-			$this->load->model('category_model', 'cate');
-			$data['category'] = $this->cate->check();
 			$this->load->helper('form');
-			$this->load->view('article.html',$data);
+			$this->load->view('add_cases.html');
 		}
 	}
 
 	/**
-	 * 编辑文章
+	 * 编辑案例
 	 */
-	public function edit_article(){
-		$aid = $this->uri->segment(3);
-		$data['article'] = $this->art->aid_article($aid);
-		$this->load->model('category_model', 'cate');
-		$data['cnames'] = $this->cate->check();
+	public function edit_cases(){
+		$caid = $this->uri->segment(3);
+		$data['cases'] = $this->cases->caid_cases($caid);
 		$this->load->helper('form');
-		$this->load->view('edit_article.html',$data);
+		$this->load->view('edit_cases.html',$data);
 	}
 
 
@@ -143,21 +124,19 @@ class Article extends MY_Controller{
 	 */
 	public function edit(){
 		$this->load->library('form_validation');
-		$status = $this->form_validation->run('article');
+		$status = $this->form_validation->run('cases');
 		//thumb暂时没有
 		$data = array(
-			'aid' => $this->input->post('aid'),
+			'caid' => $this->input->post('caid'),
 			'title'	=> $this->input->post('title'),
 			'type'	=> $this->input->post('type'),
-			'cid'	=> $this->input->post('cid'),
-			'info'	=> $this->input->post('info'),
 			'content'=> $this->input->post('content'),
 			'time'	=> time()
 			);	
 		if($status){
 			//文件上传------------------------
 			//配置
-			$config['upload_path'] = './uploads/';
+			$config['upload_path'] = './casepic/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size'] = '10000';
 			$config['file_name'] = time() . mt_rand(1000,9999);
@@ -181,8 +160,8 @@ class Article extends MY_Controller{
 			$arr['source_image'] = $info['full_path'];
 			$arr['create_thumb'] = FALSE;
 			$arr['maintain_ratio'] = TRUE;
-			$arr['width'] = 200;
-			$arr['height'] = 200;	
+			$arr['width'] = 900;
+			$arr['height'] = 500;	
 
 			//载入缩略图类
 			$this->load->library('image_lib', $arr);
@@ -193,24 +172,22 @@ class Article extends MY_Controller{
 				error('缩略图动作失败');
 			}
 
-			$this->load->model('article_model', 'art');
+			$this->load->model('cases_model', 'cases');
 			$data['thumb'] = $info['file_name'];
 
-			$this->art->update_art($data['aid'],$data);
-			success('article/index', '发表成功');
+			$this->cases->update_cases($data['caid'],$data);
+			success('cases/index', '发表成功');
 		}else {
 			$this->load->helper('form');
-			$this->load->model('category_model', 'cate');
-			$data['cnames'] = $this->cate->check();
-			$this->load->view('edit_article.html',$data);
+			$this->load->view('edit_cases.html',$data);
 		}
 	}
 	/**
-	 * 删除文章
+	 * 删除案例
 	 */
 	public function del(){
-		$aid = $this->uri->segment(3);
-		$this->art->del($aid);
-		success('article/index', '删除成功');
+		$caid = $this->uri->segment(3);
+		$this->cases->del($caid);
+		success('cases/index', '删除成功');
 	}
 }

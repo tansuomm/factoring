@@ -54,18 +54,4 @@ class Admin extends MY_Controller{
 
 		success('admin/change', '修改成功');
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

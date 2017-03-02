@@ -3,7 +3,6 @@
  */
 
 var __check_form_last_error_info = [];
-
 var check_form = function (formname, opt) {
     var formobj;				//指定当前表单
     var e_error = "";
