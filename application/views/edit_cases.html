@@ -46,7 +46,9 @@
 		<tr>
 		<td>缩略图</td>
 		<td>
-			<input type="file" name="thumb"/>
+			<input id="lefile" type="file" name="thumb" style="display:none">
+			<input id="photoCover" placeholder="选择图片" type="text">
+			<a class="btn btn-default" onclick="$('input[id=lefile]').click();">浏览</a>
 		</td>
 		</tr>
 		<tr>
@@ -69,7 +71,10 @@
 <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/ckform.js"></script>
 <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/common.js"></script>
 <script>
-	$(function () {       
+	$(function () { 
+		$('input[id=lefile]').change(function() {
+	   			$('#photoCover').val($(this).val());
+			});      
 		$('#backid').click(function(){
 			window.location.href="<?php echo site_url('cases/index') ?>";
 		});

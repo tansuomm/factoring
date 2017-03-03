@@ -34,7 +34,7 @@
 <body>
 <form action="<?php echo site_url('article/send') ?>" method="POST" enctype="multipart/form-data" class="definewidth m20">
 <table class="table table-bordered table-hover definewidth m10">
-	<caption><h2>发表文章</h2></caption>
+	<caption><h3>发表文章</h3></caption>
 	<tr>
 		<td class="tableleft">标题</td>
 		<td><input placeholder="文章标题" type="text" name="title" value="<?php echo set_value('title') ?>"  />
@@ -61,13 +61,15 @@
 	<tr>
 		<td class="tableleft">缩略图</td>
 		<td>
-			<input type="file" name="thumb"/>
+			<input id="lefile" type="file" name="thumb" style="display:none">
+			<input id="photoCover" placeholder="选择图片" type="text">
+			<a class="btn btn-default" onclick="$('input[id=lefile]').click();">浏览</a>
 		</td>
 	</tr>
 	<tr>
 		<td class="tableleft">摘要</td>
 		<td>
-			<textarea placeholder="文章摘要" name="info" id=""><?php echo set_value('info') ?></textarea><?php echo form_error('info', '<span>', '</span>') ?>
+			<textarea rows="3" placeholder="文章摘要" name="info" id=""><?php echo set_value('info') ?></textarea><?php echo form_error('info', '<span>', '</span>') ?>
 		</td>
 	</tr>
 	<tr>
@@ -90,7 +92,10 @@
 <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/common.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>org/ueditor/ueditor.all.min.js"></script>
 <script>
-    $(function () {       
+    $(function () { 
+    	$('input[id=lefile]').change(function() {
+   			$('#photoCover').val($(this).val());
+		});       
 		$('#backid').click(function(){
 				window.location.href="<?php echo site_url("article/index")?>";
 		 });

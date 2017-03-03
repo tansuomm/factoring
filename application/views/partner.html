@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html>
 <head>
-    <title>栏目</title>
+    <title>合作伙伴</title>
     <meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
@@ -37,24 +37,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <form class="form-inline definewidth m20" action="index.html" method="get">     
-  	<button type="button" class="btn btn-success" id="addnew">新增栏目</button>
+  	<button type="button" class="btn btn-success" id="addnew">新增合作伙伴</button>
 </form>
 <table class="table table-bordered table-hover definewidth m10">
     <thead>
     <tr>
-        <th width="10%">栏目编号</th>
-        <th>栏目名称</th>
+        <th width="10%">公司编号</th>
+        <th>公司名称</th>
+        <th>公司网址</th>
+        <th>公司logo</th>
         <th>操作</th>
     </tr>
     </thead>
-    	<?php foreach($category as $v): ?>
+    	<?php foreach($partner as $v): ?>
 		<tr>
-			<td><?php echo $v['cid'] ?></td>
-			<td><?php echo $v['cname'] ?></td>
+			<td><?php echo $v['pid'] ?></td>
+			<td><?php echo $v['name'] ?></td>
+            <td><a target="_blank" href="<?php echo 'http://'.$v['url'] ?>"><?php echo $v['url'] ?></a></td>
+            <td><a target="_blank" href="<?php echo base_url().'logopic/'.$v['logo'] ?>"><?php echo $v['logo'] ?></a></td>
 			<td>
-				[<a href="<?php echo site_url('category/edit_cate/' . $v['cid']) ?>">编辑</a>]
-
-				[<a href="javascript:void(0)" onclick="del('<?php echo $v['cid'] ?>')">删除</a>]
+				[<a href="javascript:void(0)" onclick="del('<?php echo $v['pid'] ?>')">删除</a>]
 			</td>
 		</tr>
 		<?php endforeach ?>
@@ -62,17 +64,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
     $(function () {
 		$('#addnew').click(function(){
-				window.location.href="<?php echo site_url('category/add_cate') ?>";
+				window.location.href="<?php echo site_url('partner/add_partner') ?>";
 		 });
     });
-	function del(id)
-	{
-		if(confirm("确定要删除吗？"))
-		{
-			var url = "<?php echo site_url('category/del/') ?>"+id;
-			window.location.href=url;		
-		}
-	}
+    function del(id){
+            if(confirm("确定要删除吗？")){
+            var url = "<?php echo site_url('partner/del/') ?>"+id;
+            window.location.href=url;       
+        }
+    }
 </script>
 
 </body>

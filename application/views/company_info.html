@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>简介修改</title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/style.css" />
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+		.tab{
+			font-size: 18px;
+			margin-top: 60px;
+			width: 80%;
+		}
+		.tx-left{
+			text-align: left;
+		}
+		textarea{
+			width: 100%;
+		}
+     	th,td{
+        	text-align: center !important;
+        	vertical-align: middle !important;  
+        	font-weight: 700; 
+        }
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+	<form action="<?php echo site_url('company/change') ?>" method="POST" class="definewidth m20">
+	<!-- 区分简介和文化方便跳转 -->
+	<input type="hidden" name="flag" value="1"> 
+	<input type="hidden" name="coid" value="<?php echo $company[0]['coid']?>">
+	<input type="hidden" name="culture" value="<?php echo $company[0]['culture']?>">
+	<table class="table table-bordered table-hover definewidth m10 tab" >
+		<tr>
+			<th colspan="2">修改公司简介</th>
+		</tr>
+		<tr>
+			<td width="10%" class="tableleft">原内容</td>
+			<td class="tx-left"><textarea disabled="disabled" id="" cols="30" rows="5"><?php echo $company[0]['info'] ?></textarea></td>
+		</tr>
+		<tr>
+			<td class="tableleft">新内容</td>
+			<td class="tx-left"><textarea name="info" id="" cols="30" rows="20"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" class="btn btn-info iw" value="确认修改" style="width: 100%;" />
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

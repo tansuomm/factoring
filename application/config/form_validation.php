@@ -51,10 +51,16 @@ $config = array(
 				'field'	=> 'cname',
 				'label'	=> '栏目名称',
 				'rules'	=> 'required|max_length[20]'
-				),
+				)
 
 		),
-
+	'partner'	=>	array(
+			array(
+				'field'	=>	'name',
+				'label'	=> '名称',
+				'rules'	=> 'required'
+				)
+		)
 	);
 
 

@@ -20,5 +20,4 @@ class Admin_model extends CI_Model{
 		$this->db->update('admin', $data, array('uid'=>$uid));
 	}
 
-	
 }

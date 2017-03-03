@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新增合作伙伴</title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/style.css" />
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+        th,td{
+        	vertical-align: middle !important;  
+        	font-weight: 700; 
+        }
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<form action="<?php echo site_url('partner/add') ?>" method="POST" enctype="multipart/form-data" class="definewidth m20">
+<table class="table table-bordered table-hover definewidth m10">
+	<caption><h3>新增合作伙伴</h3></caption>
+	<tr>
+		<td width="10%" class="tableleft">伙伴</td>
+		<td><input placeholder="公司名称" type="text" name="name" value="<?php echo set_value('name') ?>"  />
+		<?php echo form_error('name', '<span>', '</span>') ?>
+		</td>
+	</tr>
+	<tr>
+		<td class="tableleft">网址</td>
+		<td><input placeholder="www.xxx.com" type="text" name="url" value="<?php echo set_value('url') ?>"  />
+		</td>
+	</tr>
+	<tr>
+		<td class="tableleft">logo图</td>
+		<td>
+			<input id="lefile" type="file" name="logo" style="display:none">
+			<input id="photoCover" placeholder="选择图片" type="text">
+			<a class="btn btn-default" onclick="$('input[id=lefile]').click();">浏览</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" ><button type="submit" class="btn btn-primary" type="button">添加</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+		</td>
+	</tr>
+
+</table>
+</form>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/ckform.js"></script>
+<script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/common.js"></script>
+<script>
+    $(function () { 
+    	$('input[id=lefile]').change(function() {
+   			$('#photoCover').val($(this).val());
+		});      
+		$('#backid').click(function(){
+				window.location.href="<?php echo site_url("partner/index")?>";
+		 });
+    });
+</script>
+</body>
+</html>

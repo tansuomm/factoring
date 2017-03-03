@@ -51,46 +51,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var config = [
         {id:'1',
         collapsed:false, //默认左侧菜单收缩
-        homePage:'1a', //默认打开的主页
+        homePage:'11', //默认打开的主页
         menu:[{text:'首页内容',
                 items:[
-                    {id:'1a',text:'查看首页',href:'Node/index.html'},
-                    {id:'1b',text:'轮播图片',href:'Role/index.html'},
-                    {id:'1b',text:'其    他',href:'Role/index.html'},
+                    {id:'11',text:'查看首页',href:'Node/index.html'},
+                    {id:'12',text:'轮播图片',href:'Role/index.html'},
+                    {id:'13',text:'其    他',href:'Role/index.html'},
                 ]
             }]
         },{id:'2',
-        homePage : '2a',
+        homePage : '21',
         menu:[{text:'新闻管理',
                 items:[
-                    {id:'2a',text:'栏目管理',href:'<?php echo site_url("category/index") ?>'},
-                    {id:'2b',text:'文章管理',href:'<?php echo site_url("article/index")?>'},
+                    {id:'21',text:'栏目管理',href:'<?php echo site_url("category/index") ?>'},
+                    {id:'22',text:'文章管理',href:'<?php echo site_url("article/index")?>'},
                 ]
             }]
         },{id:'3',
-        homePage : '3a', 
+        homePage : '31', 
         menu:[{text:'案例管理',
                 items:[
-                    {id:'3a',text:'查看案例',href:'<?php echo site_url("cases/index") ?>'},
-                    {id:'3b',text:'添加案例',href:'<?php echo site_url("cases/send_cases") ?>'},
+                    {id:'31',text:'查看案例',href:'<?php echo site_url("cases/index") ?>'},
+                    {id:'32',text:'添加案例',href:'<?php echo site_url("cases/send_cases") ?>'},
                 ]
             }]
         },{id:'4',
-        homePage : '4a', 
+        homePage : '41', 
         menu:[{text:'重要模块',
                 items:[
-                    {id:'4a',text:'公司简介',href:'Node/index.html'},
-                    {id:'4b',text:'公司文化',href:'Node/index.html'},
-                    {id:'4c',text:'合做伙伴',href:'Node/index.html'},
-                    {id:'4d',text:'联系我们',href:'Node/index.html'},
+                    {id:'41',text:'公司简介',href:'<?php echo site_url("company/info") ?>'},
+                    {id:'42',text:'公司文化',href:'<?php echo site_url("company/culture") ?>'},
+                    {id:'43',text:'合做伙伴',href:'<?php echo site_url("partner/index") ?>'},
+                    {id:'44',text:'联系我们',href:'<?php echo site_url("contact/index") ?>'},
                 ]
             }]
         },{id:'5',
-        homePage : '5a', 
+        homePage : '51', 
         menu:[{text:'系统管理',
                 items:[
-                    {id:'5a',text:'系统信息',href:'<?php echo site_url("admin/copy") ?>'},
-                    {id:'5b',text:'密码修改',href:'<?php echo site_url("admin/change") ?>'},
+                    {id:'51',text:'系统信息',href:'<?php echo site_url("admin/copy") ?>'},
+                    {id:'52',text:'密码修改',href:'<?php echo site_url("admin/change") ?>'},
                 ]
             }]
         }];

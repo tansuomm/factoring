@@ -67,7 +67,7 @@ class Article extends MY_Controller{
 		if($status){
 			//文件上传------------------------
 			//配置
-			$config['upload_path'] = './uploads/';
+			$config['upload_path'] = './newspic/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size'] = '10000';
 			$config['file_name'] = time() . mt_rand(1000,9999);
@@ -157,7 +157,7 @@ class Article extends MY_Controller{
 		if($status){
 			//文件上传------------------------
 			//配置
-			$config['upload_path'] = './uploads/';
+			$config['upload_path'] = './newspic/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size'] = '10000';
 			$config['file_name'] = time() . mt_rand(1000,9999);
