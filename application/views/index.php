@@ -54,9 +54,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         homePage:'11', //默认打开的主页
         menu:[{text:'首页内容',
                 items:[
-                    {id:'11',text:'查看首页',href:'Node/index.html'},
-                    {id:'12',text:'轮播图片',href:'Role/index.html'},
-                    {id:'13',text:'其    他',href:'Role/index.html'},
+                    {id:'11',text:'查看首页',href:'http://www.shinnor.com'},
+                    {id:'12',text:'轮播图片',href:'<?php echo site_url("banner/index") ?>'},  
                 ]
             }]
         },{id:'2',

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>新增合作伙伴</title>
+    <title>新增轮播图片</title>
     <meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
@@ -28,25 +28,13 @@
     </style>
 </head>
 <body>
-<form action="<?php echo site_url('partner/add') ?>" method="POST" enctype="multipart/form-data" class="definewidth m20">
+<form action="<?php echo site_url('banner/add') ?>" method="POST" enctype="multipart/form-data" class="definewidth m20">
 <table class="table table-bordered table-hover definewidth m10">
-	<caption><h3>新增合作伙伴</h3></caption>
 	<tr>
-		<td width="10%" class="tableleft">伙伴</td>
-		<td><input placeholder="公司名称" type="text" name="name" value="<?php echo set_value('name') ?>"  />
-		<?php echo form_error('name', '<span>', '</span>') ?>
-		</td>
-	</tr>
-	<tr>
-		<td class="tableleft">网址</td>
-		<td><input placeholder="www.xxx.com" type="text" name="url" value="<?php echo set_value('url') ?>"  />
-		</td>
-	</tr>
-	<tr>
-		<td class="tableleft">logo图</td>
+		<td class="tableleft">banner图</td>
 		<td>
-			<input id="lefile" type="file" name="logo" style="display:none">
-			<input id="photoCover" placeholder="建议160*90" type="text">
+			<input id="lefile" type="file" name="src" style="display:none">
+			<input id="photoCover" placeholder="建议尺寸1920*500" type="text">
 			<a class="btn btn-default" onclick="$('input[id=lefile]').click();">浏览</a>
 		</td>
 	</tr>
@@ -67,7 +55,7 @@
    			$('#photoCover').val($(this).val());
 		});      
 		$('#backid').click(function(){
-				window.location.href="<?php echo site_url("partner/index")?>";
+				window.location.href="<?php echo site_url("banner/index")?>";
 		 });
     });
 </script>
