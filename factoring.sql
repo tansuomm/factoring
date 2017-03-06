@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-03-06 11:39:12
+-- Generation Time: 2017-03-06 15:35:27
 -- 服务器版本： 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -57,7 +57,8 @@ CREATE TABLE IF NOT EXISTS `hd_article` (
 
 CREATE TABLE IF NOT EXISTS `hd_banner` (
   `bid` int(11) NOT NULL,
-  `src` varchar(100) NOT NULL COMMENT '图片名称'
+  `src` varchar(100) NOT NULL COMMENT '图片名称',
+  `words` varchar(200) NOT NULL COMMENT '图片描述说明'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

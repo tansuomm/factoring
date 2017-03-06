@@ -44,6 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <tr>
         <th width="10%">图片编号</th>
         <th>图片地址</th>
+        <th>图片描述</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -51,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<tr>
 			<td><?php echo $v['bid'] ?></td>
             <td><a target="_blank" href="<?php echo base_url().'bannerpic/'.$v['src'] ?>"><?php echo $v['src'] ?></a></td>
+            <td><textarea name="words" id=""  rows="1"><?php echo $v['words'] ?></textarea></td>
 			<td>
 				[<a href="javascript:void(0)" onclick="del('<?php echo $v['bid'] ?>')">删除</a>]
 			</td>

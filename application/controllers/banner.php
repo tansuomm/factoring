@@ -16,7 +16,7 @@ class Banner extends MY_Controller{
 		$this->load->view('banner.html', $data);
 	}
 	/**
-	 * 添加合作伙伴
+	 * 添加
 	 */
 	public function add_banner(){
 		$this->load->helper('form');
@@ -69,6 +69,7 @@ class Banner extends MY_Controller{
 		$this->load->model('banner_model', 'banner');
 
 		$data = array(
+			'words' => $this->input->post('words'),
 			'src'	=> $info['file_name']
 			);	
 		// p($data);die;
@@ -85,6 +86,4 @@ class Banner extends MY_Controller{
 		$this->banner->del($bid);
 		success('banner/index', '删除成功');
 	}
-
-
 }
