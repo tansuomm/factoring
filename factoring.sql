@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-03-06 15:35:27
+-- Generation Time: 2017-03-08 16:39:45
 -- 服务器版本： 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -129,6 +129,22 @@ CREATE TABLE IF NOT EXISTS `hd_partner` (
   `pretwo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `hd_user`
+--
+
+CREATE TABLE IF NOT EXISTS `hd_user` (
+  `uid` int(11) NOT NULL,
+  `name` varchar(10) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `company` varchar(50) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `message` varchar(300) NOT NULL COMMENT '信息'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -182,6 +198,12 @@ ALTER TABLE `hd_partner`
   ADD PRIMARY KEY (`pid`);
 
 --
+-- Indexes for table `hd_user`
+--
+ALTER TABLE `hd_user`
+  ADD PRIMARY KEY (`uid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -225,6 +247,11 @@ ALTER TABLE `hd_contact`
 --
 ALTER TABLE `hd_partner`
   MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `hd_user`
+--
+ALTER TABLE `hd_user`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

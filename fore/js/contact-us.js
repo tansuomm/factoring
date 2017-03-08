@@ -1,4 +1,18 @@
 $(function(){
+    // form 插件提交表单
+    $('#main-contact-form').submit(function() {
+        $(this).ajaxSubmit(
+                function(data){
+                    //返回结果
+                    if($.trim(data)=="success"){
+                        alert("提交成功");
+                    }
+                    $('#main-contact-form').resetForm();
+                }
+            );
+        return false;
+    });
+
 	// 获取联系信息
     $.ajax({
         type:'get',

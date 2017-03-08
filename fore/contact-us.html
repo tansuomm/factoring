@@ -70,7 +70,7 @@
     <section id="contact-info">
         <div class="center">                
             <h2>联系盛龙创实</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+            <p class="lead">盛龙创实保理科技有限公司,欢迎您的到访</p>
         </div>
         <div class="gmap-area">
             <div class="container">
@@ -93,41 +93,41 @@
     <section id="contact-page">
         <div class="container">
             <div class="center">        
-                <h2>Drop Your Message</h2>
-                <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2>您的联系方式</h2>
+                <p class="lead">如果您需要帮助,请留下正确的联系方式,方便我们与您取的联系.</p>
             </div> 
             <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
-                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="http://127.0.0.1/factoring/index.php/user/add">
                     <div class="col-sm-5 col-sm-offset-1">
                         <div class="form-group">
-                            <label>Name *</label>
-                            <input type="text" name="name" class="form-control" required="required">
+                            <label>姓名 *</label>
+                            <input type="text" name="name" maxlength="10" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" name="email" class="form-control" required="required">
+                            <label>邮箱 *</label>
+                            <input type="email" pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$" name="email" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <input type="number" class="form-control">
+                            <label>电话</label>
+                            <input type="tel" name="phone" class="form-control" pattern="1[3578]\d{9}">
                         </div>
                         <div class="form-group">
-                            <label>Company Name</label>
-                            <input type="text" class="form-control">
+                            <label>公司名称</label>
+                            <input type="text" name="company" class="form-control">
                         </div>                        
                     </div>
                     <div class="col-sm-5">
                         <div class="form-group">
-                            <label>Subject *</label>
+                            <label>主题 *</label>
                             <input type="text" name="subject" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Message *</label>
-                            <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
+                            <label>信息 *</label>
+                            <textarea name="message" id="message" required="required" minlength="10"  class="form-control" rows="8"></textarea>
                         </div>                        
                         <div class="form-group">
-                            <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
+                            <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">提交信息</button>
                         </div>
                     </div>
                 </form> 
@@ -153,6 +153,7 @@
             </div>
         </div>
     </footer><!--/#footer-->
+        
     <!-- 模板 -->
     <script type="text/template" id="contactus">
         <p>电话:${tel} <br>
@@ -162,10 +163,12 @@
     </script> <!-- 联系我们模板 -->
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0$ak=l5IR4dpOinQZvCYKDEumm5atWBmxHj7c"></script>
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+   
     <script src="http://cdn.bootcss.com/juicer/0.6.14/juicer-min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.form.min.js"></script>
     <script src="js/contact-us.js"></script>
     <script src="js/wow.min.js"></script>
 
