@@ -44,6 +44,12 @@
 			</td>
 		</tr>
 		<tr>
+            <td class="tableleft">案例说明</td>
+            <td><input type="text" name="info" value="<?php if(isset($cases)){echo $cases[0]['info'];}else{echo $info;}?>" <?php echo set_value('info') ?>/>
+			<?php echo form_error('info', '<span>', '</span>') ?>
+			</td>
+	    </tr> 
+		<tr>
 		<td>缩略图</td>
 		<td>
 			<input id="lefile" type="file" name="thumb" style="display:none">

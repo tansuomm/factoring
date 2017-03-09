@@ -97,6 +97,7 @@ class Cases extends MY_Controller{
 				'type'	=> $this->input->post('type'),
 				'thumb'	=> $info['file_name'],
 				'content'=> $this->input->post('content'),
+				'info'=> $this->input->post('info'),
 				'time'	=> time()
 				);	
 			// p($data);die;
@@ -131,6 +132,7 @@ class Cases extends MY_Controller{
 			'title'	=> $this->input->post('title'),
 			'type'	=> $this->input->post('type'),
 			'content'=> $this->input->post('content'),
+			'info'=> $this->input->post('info'),
 			'time'	=> time()
 			);	
 		if($status){

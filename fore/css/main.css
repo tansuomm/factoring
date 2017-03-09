@@ -783,12 +783,13 @@ input.search-form:hover {
 .panel-default{
   border-color: transparent;
 }
-
 .panel-default>.panel-heading,
 .panel{
   background-color: #e6e6e6; 
-  border:0 none;
+  font-size:16px !important;
+  border:1 solid #F0CECE;
   box-shadow:none;
+  overflow: hidden;
 }
 
 .panel-default>.panel-heading+.panel-collapse .panel-body{
@@ -798,8 +799,18 @@ input.search-form:hover {
 
 .panel-body{
   padding: 20px 20px 10px;
+  background-color: #FFFFFF;
 }
 
+.panel-body table{
+  width: 100%;
+}
+
+.panel-body .table li a{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  color: #1B1919;
+}
 .panel-group .panel+.panel{
   margin-top: 0;
   border-top: 1px solid #d9d9d9;
@@ -810,7 +821,10 @@ input.search-form:hover {
 }
 
 .panel-heading{
+  color: #FFFFFF;
   border-radius: 0;
+  background-color: #c52d2f !important;
+  border-color: #c52d2f !important;
 }
 
 .panel-title>a{
@@ -1013,7 +1027,33 @@ a.accordion-toggle  i{
 .contact-info{
   color:#000;
 }
-
+/*************************
+*******News Page CSS******
+**************************/
+#news{
+  
+}
+.news .panel .panel-body li{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+}
+.news .panel .panel-body li a{
+  color: #090909;
+}
+.news .panel-default .panel-body h2{
+  text-align: center;
+}
+.news .panel-default .panel-body h3{
+  display: inline;
+}
+.news .panel-default .panel-body .gray{
+  color: #999;
+  font-size: 14px;
+}
+.news .panel-default .panel-body p{
+  text-indent: 2em;
+}
 /*************************
 ********* About Us Page CSS ******
 **************************/

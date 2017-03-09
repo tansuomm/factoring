@@ -23,11 +23,8 @@ class Article_model extends CI_Model{
 	/**
 	 * 首页查询文章
 	 */
-	public function check(){
-		$data['art'] = $this->db->select('aid,thumb,title,info')->order_by('time', 'desc')->get_where('article', array('type'=>0))->result_array();
-
-		$data['hot'] = $this->db->select('aid,thumb,title,info')->order_by('time', 'desc')->get_where('article', array('type'=>1))->result_array();
-
+	public function select(){
+		$data = $this->db->select('title,time,thumb,info,content')->order_by('time', 'desc')->get('article')->result_array();
 		return $data;
 	}
 

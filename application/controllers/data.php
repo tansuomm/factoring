@@ -10,6 +10,7 @@ class Data extends CI_Controller{
 		$this->load->model('banner_model', 'banner');
 		$this->load->model('partner_model','partner');
 		$this->load->model('contact_model','contact');
+		$this->load->model('article_model','article');
 		header('content-type:application:json;charset=utf8');  
 		header('Access-Control-Allow-Origin:*');  
 		header('Access-Control-Allow-Methods:POST');  
@@ -33,5 +34,13 @@ class Data extends CI_Controller{
 		$contact = $this->contact->select();
 		echo json_encode($contact);
 		exit;
+	}
+	/*获取新闻信息*/
+	public function news(){
+		$article = $this->article->select();
+		//格式化日期
+
+		
+		echo json_encode(array('list'=>$article));
 	}
 }

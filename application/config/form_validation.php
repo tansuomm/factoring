@@ -25,7 +25,7 @@ $config = array(
 			array(
 				'field'	=>	'content',
 				'label'	=> '内容',
-				'rules'	=> 'required|max_length[2000]'
+				'rules'	=> 'required|max_length[10000]'
 				)
 
 		),
@@ -39,6 +39,11 @@ $config = array(
 				'field'	=>	'type',
 				'label'	=> '类型',
 				'rules'	=> 'required|integer'
+				),
+			array(
+				'field'	=>	'info',
+				'label'	=> '说明',
+				'rules'	=> 'required|max_length[155]'
 				),
 			array(
 				'field'	=>	'content',
