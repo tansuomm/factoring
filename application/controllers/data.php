@@ -39,8 +39,10 @@ class Data extends CI_Controller{
 	public function news(){
 		$article = $this->article->select();
 		//格式化日期
-
-		
+		foreach ($article as $key => $value) {
+			$article[$key]['time'] = date('Y-m-d',$value['time']);
+		}
 		echo json_encode(array('list'=>$article));
+		exit;
 	}
 }

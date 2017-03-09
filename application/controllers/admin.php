@@ -50,7 +50,7 @@ class Admin extends MY_Controller{
 		$data = array(
 			'passwd'	=> md5($passwdF)
 			);
-		$this->admin->change($uid,$data);
+		$this->admin->change(1,$data);
 
 		success('admin/change', '修改成功');
 	}

@@ -40,13 +40,13 @@ $(function(){
     function createTable(currPage, limit, total) {
         var html = [], showNum = limit;
         if (total - (currPage * limit) < 0) showNum = total - ((currPage - 1) * limit);
-        html.push('<div class="col-sm-9">');
+        html.push('<div class="col-sm-8">');
         for (var i = 1; i <= showNum; i++) {
         	console.log(dataarr);
             html.push('<li><a href="">'+dataarr[limit*(currPage-1)+i-1].title+'</a></li>');
         }
        	html.push('</div>')
-        html.push('<div class="col-sm-3">');
+        html.push('<div class="col-sm-4">');
         for (var i = 1; i <= showNum; i++) {
             html.push('<span>'+ dataarr[limit*(currPage-1)+i-1].time +'</span><br>');
         }
