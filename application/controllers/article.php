@@ -91,8 +91,8 @@ class Article extends MY_Controller{
 			$arr['source_image'] = $info['full_path'];
 			$arr['create_thumb'] = FALSE;
 			$arr['maintain_ratio'] = TRUE;
-			$arr['width'] = 900;
-			$arr['height'] = 500;	
+			$arr['width'] = 700;
+			$arr['height'] = 300;	
 
 			//载入缩略图类
 			$this->load->library('image_lib', $arr);
@@ -181,8 +181,8 @@ class Article extends MY_Controller{
 			$arr['source_image'] = $info['full_path'];
 			$arr['create_thumb'] = FALSE;
 			$arr['maintain_ratio'] = TRUE;
-			$arr['width'] = 200;
-			$arr['height'] = 200;	
+			$arr['width'] = 700;
+			$arr['height'] = 300;	
 
 			//载入缩略图类
 			$this->load->library('image_lib', $arr);

@@ -15,29 +15,9 @@ class Cases_model extends CI_Model{
 	 * 查看案例
 	 */
 	public function cases(){
-		$data = $this->db->get('cases')->result_array();
+		$data = $this->db->order_by('time', 'desc')->get('cases')->result_array();
 		return $data;
 	}
-
-
-	// /**
-	//  * 首页查询文章
-	//  */
-	// public function check(){
-	// 	$data['art'] = $this->db->select('aid,thumb,title,info')->order_by('time', 'desc')->get_where('article', array('type'=>0))->result_array();
-
-	// 	$data['hot'] = $this->db->select('aid,thumb,title,info')->order_by('time', 'desc')->get_where('article', array('type'=>1))->result_array();
-
-	// 	return $data;
-	// }
-
-	// /**
-	//  * 右侧文章标题调取
-	//  */
-	// public function title($limit){
-	// 	$data = $this->db->select('title,aid')->order_by('time', 'desc')->limit($limit)->get('article')->result_array();
-	// 	return $data;
-	// }
 
 	/**
 	 * 通过caid 调取案例

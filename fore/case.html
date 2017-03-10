@@ -6,16 +6,15 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>盛龙创实新闻</title>
-    
-    <!-- core CSS -->
+    <title>服务案例</title>
+	
+	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -27,7 +26,7 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body>
+<body class="homepage">
 
     <header id="header">
         <nav class="navbar navbar-inverse" role="banner">
@@ -41,7 +40,7 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
                 </div>
-        
+				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
@@ -52,46 +51,18 @@
                                 <li><a href="company-culture.html">公司文化</a></li>
                             </ul>
                         </li>
-                        <li  class="active"><a href="news.html">新闻中心</a></li>
-                        <li><a href="case.html">服务案例</a></li>
+                        <li><a href="news.html">新闻中心</a></li>
+                        <li class="active"><a href="case.html">服务案例</a></li>
                         <li><a href="contact-us.html">联系我们</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->
-
-    <section id="news" class="container">
-        <div class="blog news">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="panel">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12">
-                                <div class="panel-heading">新闻列表&nbsp;&gt;</div> 
-                                <div class="panel-body">
-                                    <div id="mainContent" class="row">
-                                    </div>
-                                </div>
-                                <div id="callBackPager" class="panel-footer">
-                                <!-- 动态替换 -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="panel panel-default">
-                        <div id="newsdata" class="panel-body">
-                        <!-- 动态替换 -->
-                        </div>
-                    </div>
-                </div>
-            </div><!-- row -->        
-        </div>
-    </section><!-- #/news -->
-    <div style="height: 80px"></div><!-- 占用高度 -->
-    <footer id="footer" class="midnight-blue mfixed">
+    <div id="wrapcontainer">
+        <!-- 数据渲染result -->
+    </div>
+    <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -109,27 +80,61 @@
             </div>
         </div>
     </footer><!--/#footer-->
-    <!-- 模板 -->
-    <script type="text/template" id="newstemplate">
-        <h2>${title}</h2>
-        <span class="gray">摘要：</span>
-        <h3>${info}</h3>
-        <span class="gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布时间:${time}</span>
-        <hr>
-        <div>
-            <img src="http://127.0.0.1/factoring/newspic/${thumb}" alt="新闻图片"><br>
-            $${content}
-        </div>
+    
+    <!-- 数据模板 -->
+    <script type="text/template" id="wrapCase">
+        {@each list as item,index}
+            <section {@if index%2==0} class="even" {@/if}>
+            <div class="container">
+                <div class="row">
+                    {@if index%2==0}
+                        <div class="col-md-7 col-sm-12 wow fadeInDown" data-wow-duration="800ms" data-wow-delay="600ms">
+                            <div>
+                                <img src="http://127.0.0.1/factoring/casepic/${item.thumb}" alt="图片">
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 wow fadeInDown" data-wow-duration="800ms" data-wow-delay="600ms">
+                            <div class="text">
+                                <div class="time">
+                                    <div class="day">${item.day}</div>
+                                    <div class="month">${item.month}</div>
+                                </div>
+                                <h2><a href="">${item.title}</a></h2>
+                                [<span>{@if item.type =="1"} 科技 {@else} 常规 {@/if}</span>]&nbsp;&nbsp;[<span>${item.info}</span>]
+                                <p>${item|links_build}...</p>
+                            </div>
+                        </div>
+                    {@else}
+                        <div class="col-md-5 col-sm-12 wow fadeInDown" data-wow-duration="800ms" data-wow-delay="600ms">
+                            <div class="text">
+                                <div class="time">
+                                    <div class="day">${item.day}</div>
+                                    <div class="month">${item.month}</div>
+                                </div>
+                                <h2><a href="">${item.title}</a></h2>
+                                [<span>{@if item.type =="1"} 科技 {@else} 常规 {@/if}</span>]&nbsp;&nbsp;[<span>${item.info}</span>]
+                                <p>${item|links_build}...</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12 wow fadeInDown" data-wow-duration="800ms" data-wow-delay="600ms">
+                            <div>
+                                <img src="http://127.0.0.1/factoring/casepic/${item.thumb}" alt="图片">
+                            </div>
+                        </div>
+                    {@/if}  
+                    </div>
+                </div>  
+            </div>
+            </section>
+        {@/each}
     </script>
+   
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/juicer/0.6.14/juicer-min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/jquery.form.min.js"></script>
-    <script src="js/extendPagination.js"></script>
-    <script src="js/news.js"></script>
+    <script src="js/case.js"></script>
     <script src="js/wow.min.js"></script>
-
 </body>
 </html>

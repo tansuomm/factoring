@@ -11,6 +11,7 @@ class Data extends CI_Controller{
 		$this->load->model('partner_model','partner');
 		$this->load->model('contact_model','contact');
 		$this->load->model('article_model','article');
+		$this->load->model('cases_model','cases');
 		header('content-type:application:json;charset=utf8');  
 		header('Access-Control-Allow-Origin:*');  
 		header('Access-Control-Allow-Methods:POST');  
@@ -43,6 +44,18 @@ class Data extends CI_Controller{
 			$article[$key]['time'] = date('Y-m-d',$value['time']);
 		}
 		echo json_encode(array('list'=>$article));
+		exit;
+	}
+	/*获取案例*/
+	public function cases(){
+		$cases = $this->cases->cases();
+		//格式化日期
+
+		foreach ($cases as $key => $value) {
+			$cases[$key]['day'] = date('d',$value['time']);
+			$cases[$key]['month'] = date('m',$value['time']);
+		}
+		echo json_encode(array('list'=>$cases));
 		exit;
 	}
 }
