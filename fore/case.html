@@ -12,7 +12,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -47,8 +46,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">公司简介 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="company-info.html">公司简介</a></li>
-                                <li><a href="company-culture.html">公司文化</a></li>
+                                <li><a href="about-us.html?content=1">公司简介</a></li>
+                                <li><a href="about-us.html?content=2">公司文化</a></li>
                             </ul>
                         </li>
                         <li><a href="news.html">新闻中心</a></li>
@@ -84,7 +83,8 @@
     <!-- 数据模板 -->
     <script type="text/template" id="wrapCase">
         {@each list as item,index}
-            <section {@if index%2==0} class="even" {@/if}>
+            <section {@if index%2==0} class="casesection even"
+            {@else} class="casesection" {@/if}>
             <div class="container">
                 <div class="row">
                     {@if index%2==0}
@@ -93,15 +93,15 @@
                                 <img src="http://127.0.0.1/factoring/casepic/${item.thumb}" alt="图片">
                             </div>
                         </div>
-                        <div class="col-md-5 col-sm-12 wow fadeInDown" data-wow-duration="800ms" data-wow-delay="600ms">
+                        <div class="col-md-5 col-lg-4 col-lg-offset-1 col-sm-12 wow fadeInDown" data-wow-duration="800ms" data-wow-delay="600ms">
                             <div class="text">
                                 <div class="time">
                                     <div class="day">${item.day}</div>
-                                    <div class="month">${item.month}</div>
+                                    <div class="month">${item.month}月</div>
                                 </div>
-                                <h2><a href="">${item.title}</a></h2>
-                                [<span>{@if item.type =="1"} 科技 {@else} 常规 {@/if}</span>]&nbsp;&nbsp;[<span>${item.info}</span>]
-                                <p>${item|links_build}...</p>
+                                <h2><a target="_self" href="#" onclick="showNewItem(${item.caid})">${item.title}</a></h2>
+                                [<span>{@if item.type =="1"} 科技 {@else} 常规 {@/if}</span>]&nbsp;[<span>${item.info}</span>]
+                                <p>$${item.content}</p>
                             </div>
                         </div>
                     {@else}
@@ -109,11 +109,11 @@
                             <div class="text">
                                 <div class="time">
                                     <div class="day">${item.day}</div>
-                                    <div class="month">${item.month}</div>
+                                    <div class="month">${item.month}月</div>
                                 </div>
-                                <h2><a href="">${item.title}</a></h2>
-                                [<span>{@if item.type =="1"} 科技 {@else} 常规 {@/if}</span>]&nbsp;&nbsp;[<span>${item.info}</span>]
-                                <p>${item|links_build}...</p>
+                                <h2><a target="_self" href="#" onclick="showNewItem(${item.caid})">${item.title}</a></h2>
+                                [<span>{@if item.type =="1"} 科技 {@else} 常规 {@/if}</span>]&nbsp;[<span>${item.info}</span>]
+                                <p>$${item.content}</p>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-12 wow fadeInDown" data-wow-duration="800ms" data-wow-delay="600ms">
@@ -132,8 +132,6 @@
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/juicer/0.6.14/juicer-min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
     <script src="js/case.js"></script>
     <script src="js/wow.min.js"></script>
 </body>

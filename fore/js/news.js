@@ -1,4 +1,3 @@
-
 $(function(){
 	var totalNum = 1,
 		showNum = 3,
@@ -51,12 +50,12 @@ $(function(){
     function createTable(currPage, limit, total) {
         var html = [], showNum = limit;
         if (total - (currPage * limit) < 0) showNum = total - ((currPage - 1) * limit);
-        html.push('<div class="col-sm-8">');
+        html.push('<div class="col-sm-7">');
         for (var i = 1; i <= showNum; i++) {
             html.push('<li><a onclick="reLoad('+(limit*(currPage-1)+i-1)+')" href="javascript:void(0)">'+dataarr[limit*(currPage-1)+i-1].title+'</a></li>');
         }
        	html.push('</div>')
-        html.push('<div class="col-sm-4">');
+        html.push('<div class="col-sm-5">');
         for (var i = 1; i <= showNum; i++) {
             html.push('<span>'+ dataarr[limit*(currPage-1)+i-1].time +'</span><br>');
         }

@@ -12,7 +12,8 @@ class Data extends CI_Controller{
 		$this->load->model('contact_model','contact');
 		$this->load->model('article_model','article');
 		$this->load->model('cases_model','cases');
-		header('content-type:application:json;charset=utf8');  
+		$this->load->model('company_model','company');
+		header('content-type:application:json;charset=utf8');
 		header('Access-Control-Allow-Origin:*');  
 		header('Access-Control-Allow-Methods:POST');  
 		header('Access-Control-Allow-Headers:x-requested-with,content-type');  
@@ -56,6 +57,21 @@ class Data extends CI_Controller{
 			$cases[$key]['month'] = date('m',$value['time']);
 		}
 		echo json_encode(array('list'=>$cases));
+		exit;
+	}
+	public function caseItem(){
+		$caid = $this->input->post('caid');
+		$case = $this->cases->caid_cases($caid);
+		foreach ($case as $key => $value) {
+			$case[$key]['time'] = date('Y-m-d',$value['time']);
+		}
+		echo json_encode(array('list'=>$case));
+		exit;
+	}
+	/*公司简介和文化*/
+	public function aboutUs(){
+		$company = $this->company->select();
+		echo json_encode($company);
 		exit;
 	}
 }
