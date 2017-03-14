@@ -16,7 +16,7 @@ $(function(){
        	// 渲染内容
        	xuanran(0,dataarr);
     }).fail(function(data){
-        alert('哎哟网太卡了?')
+        layer.msg('玩命加载中...');
     });
  	/* 点击改变内容 */
  	window.reLoad = function(id){

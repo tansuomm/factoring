@@ -9,7 +9,7 @@ $(function(){
       var html = juicer(tpl,arr);
       $('#wrapcontainer').html(html);
     }).fail(function(data){
-        alert('哎哟网太卡了?')
+        layer.msg('玩命加载中...');
     });
 });
 

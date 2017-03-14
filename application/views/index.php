@@ -34,6 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">新闻管理</div></li>
             <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">案例管理</div></li>
             <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">重要模块</div></li>
+            <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">客户管理</div></li>
             <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">系统管理</div></li>
 
         </ul>
@@ -86,10 +87,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }]
         },{id:'5',
         homePage : '51', 
+        menu:[{text:'客户管理',
+                items:[
+                    {id:'51',text:'客户列表',href:'<?php echo site_url("user/index") ?>'},
+                ]
+            }]
+        },{id:'6',
+        homePage : '61', 
         menu:[{text:'系统管理',
                 items:[
-                    {id:'51',text:'系统信息',href:'<?php echo site_url("admin/copy") ?>'},
-                    {id:'52',text:'密码修改',href:'<?php echo site_url("admin/change") ?>'},
+                    {id:'61',text:'系统信息',href:'<?php echo site_url("admin/copy") ?>'},
+                    {id:'62',text:'密码修改',href:'<?php echo site_url("admin/change") ?>'},
                 ]
             }]
         }];

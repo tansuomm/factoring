@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>客户</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() .'style/' ?>Css/style.css" />
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/bootstrap.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/ckform.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() .'style/' ?>Js/common.js"></script>
+ 
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+        table{
+            margin-top: 40px !important;
+        }
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+    <tr>
+        <th width="10%">客户编号</th>
+        <th>姓名</th>
+        <th>邮箱</th>
+        <th>电话</th>
+        <th>公司</th>
+        <th>主题</th>
+        <th>信息</th>
+        <th>时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+	    <?php foreach($user as $v): ?>
+		<tr>
+			<td><?php echo $v['uid'] ?></td>
+			<td><?php echo $v['name'] ?></td>
+			<td><?php echo $v['email'] ?></td>
+            <td><?php echo $v['phone'] ?></td>
+            <td><?php echo $v['company'] ?></td>
+            <td><textarea disabled="disabled" cols="1" rows="2"><?php echo $v['subject'] ?></textarea></td>
+            <td><textarea disabled="disabled" cols="1" rows="2"><?php echo $v['message'] ?></textarea></td>
+			<td><?php echo date('y-m-d',$v['time']) ?></td>
+			<td>
+				[<a href="javascript:void(0)" onclick="del('<?php echo $v['uid'] ?>')">删除</a>]
+			</td>
+		</tr>
+		<?php endforeach ?>
+</table>
+<div class="inline pull-right page">
+		<?php echo $links ?>
+</div>
+<script>
+	function del(id)
+	{
+		if(confirm("确定要删除不确定的客户吗？"))
+		{
+		  var url = "<?php echo site_url('user/del/') ?>"+id;	
+			window.location.href=url;		
+		}
+	}
+</script>
+
+</body>
+</html>

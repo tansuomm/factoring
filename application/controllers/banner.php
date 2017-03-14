@@ -55,8 +55,7 @@ class Banner extends MY_Controller{
 		$arr['create_thumb'] = FALSE;
 		$arr['maintain_ratio'] = TRUE;
 		$arr['width'] = 1920;
-		$arr['height'] = 500;	
-
+		$arr['height'] = 750;	
 		//载入缩略图类
 		$this->load->library('image_lib', $arr);
 		//执行动作

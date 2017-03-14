@@ -5,7 +5,7 @@ $(function(){
                 function(data){
                     //返回结果
                     if($.trim(data)=="success"){
-                        alert("提交成功");
+                        layer.msg('提交成功');
                     }
                     $('#main-contact-form').resetForm();
                 }
@@ -26,7 +26,7 @@ $(function(){
         $('.map-content').append(html);
         //active激活
     }).fail(function(data){
-        alert('哎哟网太卡了?')
+        layer.msg('玩命加载中...');
     });
     var map = new BMap.Map("bmap");
     map.centerAndZoom(new BMap.Point(116.439,39.926),11);

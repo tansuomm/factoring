@@ -10,7 +10,7 @@ $(function(){
 		var html = juicer(tpl,data.list[0]);
 		$('#caseItem').html(html);
 	}).fail(function(){
-		alert("网络太卡了");
+		layer.msg('玩命加载中...');
 	});
 });
 /*获取url 参数*/

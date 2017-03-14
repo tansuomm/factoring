@@ -14,7 +14,7 @@ jQuery(function($) {'use strict',
         $('.carousel-indicators > li:first').addClass('active');
         $('.carousel-inner > div:first').addClass('active');
     }).fail(function(data){
-        alert('哎哟网太卡了?')
+        layer.msg('玩命加载中...');
     });
    // 获取合作伙伴
     $.ajax({
@@ -27,7 +27,7 @@ jQuery(function($) {'use strict',
         //console.log(html);
         $('.partners').prepend(html);
     }).fail(function(data){
-        alert('哎哟网太卡了?')
+       layer.msg('玩命加载中...');
     });
 	//#main-slider
 	$(function(){
@@ -35,7 +35,6 @@ jQuery(function($) {'use strict',
 			interval: 8000
 		});
 	});
-
 
 	// accordian
 	$('.accordion-toggle').on('click', function(){

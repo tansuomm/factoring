@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-03-09 17:48:39
+-- Generation Time: 2017-03-14 15:20:57
 -- 服务器版本： 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -143,7 +143,8 @@ CREATE TABLE IF NOT EXISTS `hd_user` (
   `phone` varchar(20) NOT NULL,
   `company` varchar(50) NOT NULL,
   `subject` varchar(100) NOT NULL,
-  `message` varchar(300) NOT NULL COMMENT '信息'
+  `message` varchar(300) NOT NULL COMMENT '信息',
+  `time` int(11) NOT NULL COMMENT '提交时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

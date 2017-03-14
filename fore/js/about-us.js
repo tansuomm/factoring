@@ -3,7 +3,7 @@ $(function(){
   $.ajax({
   	type:'post',
     url:'http://127.0.0.1/factoring/index.php/data/aboutUs',
-    dataType:'json',
+    dataType:'json'
 	}).done(function(data){
 		var info_tpl = $('#infotemplate').html();
 		var culture_tpl = $('#culturetemplate').html();
@@ -15,7 +15,7 @@ $(function(){
 		//console.log(data);
 		$('#aboutUs').html(html);
 	}).fail(function(){
-		alert("网络太卡了");
+		layer.msg('玩命加载中...');
 	});
 });
 /*获取url 参数*/
