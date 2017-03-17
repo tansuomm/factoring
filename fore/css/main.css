@@ -16,7 +16,7 @@
 
 body {
   background: #fff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans',Microsoft YaHei, sans-serif;
   color:#4e4e4e;
   line-height: 22px;
 }
@@ -418,14 +418,14 @@ input.search-form:hover {
 #main-slider .carousel .item {
   background-position: 50%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:100% 100%;
   left: 0 !important;
   opacity: 0;
   top: 0;
   position: absolute;
   width: 100%;
   display: block !important;
-  height: 730px;
+  height: 750px;
   -webkit-transition: opacity ease-in-out 500ms;
   -moz-transition: opacity ease-in-out 500ms;
   -o-transition: opacity ease-in-out 500ms;
