@@ -15,7 +15,7 @@ class Company extends MY_Controller{
 		$this->load->view('company_info.html', $data);
 	}
 	/**
-	 * 查看文化
+	 * 查看优势
 	 */
 	public function culture(){
 		$data['company'] = $this->company->select();

@@ -14,7 +14,7 @@ class Company_model extends CI_Model{
 	}
 
 	/**
-	 * 修改公司简介和文化
+	 * 修改公司简介和优势
 	 */
 	public function update($coid, $data){
 		$this->db->update('company', $data, array('coid'=>$coid));

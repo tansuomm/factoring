@@ -15,7 +15,7 @@
 **************************/
 
 body {
-  background: #fff;
+  background: #3B3030;
   font-family: 'Open Sans',Microsoft YaHei, sans-serif;
   color:#4e4e4e;
   line-height: 22px;
@@ -46,10 +46,6 @@ h3{
   color: #787878;
   font-weight: 400;
   line-height: 24px;
-}
-
-h4{
-  font-size: 16px;
 }
 
 a {
@@ -281,7 +277,9 @@ input.search-form:hover {
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
-  background: #151515;
+  
+  background: #1E1B1B;
+  
   padding: 15px 0;
   padding-bottom: 0;
 }
@@ -389,6 +387,7 @@ input.search-form:hover {
 }
 
 #main-slider .carousel .carousel-content {
+  text-align: center;
   margin-top: 150px;
 }
 
@@ -425,13 +424,15 @@ input.search-form:hover {
   position: absolute;
   width: 100%;
   display: block !important;
-  height: 750px;
+  height: 850px;
   -webkit-transition: opacity ease-in-out 500ms;
   -moz-transition: opacity ease-in-out 500ms;
   -o-transition: opacity ease-in-out 500ms;
   transition: opacity ease-in-out 500ms;
 }
-
+#main-slider .carousel .item .big-font {
+  font-size: 75px;
+}
 #main-slider .carousel .item:first-child {
   top: auto;
   position: relative;
@@ -686,6 +687,7 @@ input.search-form:hover {
 }
 
 .services-wrap .pull-left {
+  margin-top: 30px;
   margin-right: 20px;
 }
 
@@ -1009,11 +1011,12 @@ a.accordion-toggle  i{
   display: inline;
 }
 
-#conatcat-info{
-  background: #fff url(../images/contact.png) no-repeat 90% 0;
-  padding: 30px 0;
+#contact-info{
+  color: #fff;
 }
-
+#contact-info h2{
+  color: #fff;
+}
 .contact-info i{
   width: 60px;
   height: 60px;
@@ -1082,6 +1085,10 @@ a.accordion-toggle  i{
   background: #f2f2f2;
   padding-bottom: 40px;
 }
+.old{
+  background: #fff;
+  padding-bottom: 40px;
+}
 .casesection{
   padding:130px 0;
 }
@@ -1132,6 +1139,9 @@ a.accordion-toggle  i{
 /*************************
 *******Case-Item Page CSS******
 **************************/
+#caseItem{
+  background: #fff;
+}
 #caseItem .content h2{
   text-align: center;
 }
@@ -1152,9 +1162,11 @@ a.accordion-toggle  i{
 /*************************
 ********* About Us Page CSS ******
 **************************/
-
+#aboutUs{
+  color: #fff;
+}
 #aboutUs h2 {
-  color: #000;
+  color:#fff;
   font-weight: 300;
 }
 #aboutUs hr{
@@ -1162,7 +1174,13 @@ a.accordion-toggle  i{
   width: 150px;
   margin: 50px auto;
   border: none;
-  border-top: 5px ridge green;
+  border-top: 5px ridge #ce0c0c;
+}
+#aboutUs p{
+  text-align: left;
+  font-size: 18px;
+  line-height: 36px;
+
 }
 
 /***********************
@@ -1644,6 +1662,7 @@ a.accordion-toggle  i{
 **************************/
 
 .gmap-area {
+  color: #000;
   background-image: url("../images/map.jpg");
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -1670,18 +1689,22 @@ a.accordion-toggle  i{
   height: 300px;
   padding-top:100px;
 }
-.gmap-area .map-content address h4{
-  font-weight: 700;
+.gmap-area .map-content h4{
+  font-weight: 400;
+  color: #000;
   /* font-size: 16px; */
 }
 
 #contact-page{
+  color: #fff;
   padding-top: 0;
 }
-
+#contact-page h2{
+  color: #fff;
+}
 #contact-page .contact-form 
 .form-group label {
-  color: #4E4E4E;
+  color: #fff;
   font-size: 16px;
   font-weight: 300;
 }
