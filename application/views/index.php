@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         menu:[{text:'重要模块',
                 items:[
                     {id:'41',text:'公司简介',href:'<?php echo site_url("company/info") ?>'},
-                    {id:'42',text:'公司文化',href:'<?php echo site_url("company/culture") ?>'},
+                    {id:'42',text:'公司优势',href:'<?php echo site_url("company/culture") ?>'},
                     {id:'43',text:'合做伙伴',href:'<?php echo site_url("partner/index") ?>'},
                     {id:'44',text:'联系我们',href:'<?php echo site_url("contact/index") ?>'},
                 ]

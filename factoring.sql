@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-03-14 15:20:57
+-- Generation Time: 2017-03-20 18:30:37
 -- 服务器版本： 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `hd_category` (
 CREATE TABLE IF NOT EXISTS `hd_company` (
   `coid` int(11) NOT NULL,
   `info` text NOT NULL COMMENT '简介',
-  `culture` text NOT NULL COMMENT '文化',
+  `culture` text NOT NULL COMMENT '优势',
   `preone` varchar(200) NOT NULL COMMENT '预留'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
