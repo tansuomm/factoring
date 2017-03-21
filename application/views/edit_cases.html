@@ -38,10 +38,13 @@
 	    </tr> 
 	    <tr>
 			<td class="tableleft">类型</td>
-			<td>
+			<td><input type="text" name="type" value="<?php if(isset($cases)){echo $cases[0]['type'];}else{echo $type;}?>" <?php echo set_value('type') ?>/>
+			<?php echo form_error('type', '<span>', '</span>') ?>
+			</td>
+			<!-- <td>
 			<input <?php if(isset($cases)){if($cases[0]['type']==0){echo "checked";}}else{if($type==0){echo "checked";}}?> type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 常规案例
 			<input <?php if(isset($cases)){if($cases[0]['type']==1){echo "checked";}}else{if($type==0){echo "checked";}}?> type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 科技案例
-			</td>
+			</td> -->
 		</tr>
 		<tr>
             <td class="tableleft">案例说明</td>

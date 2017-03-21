@@ -38,6 +38,7 @@
     <tr>
         <th width="10%">案例编号</th>
         <th>案例标题</th>
+        <th>案例分类</th>
         <th>案例说明</th>
         <th>发表时间</th>
         <th>管理操作</th>
@@ -47,6 +48,7 @@
 		<tr>
 			<td><?php echo $v['caid'] ?></td>
 			<td><?php echo $v['title'] ?></td>
+            <td><?php echo $v['type'] ?></td>
             <td><?php echo $v['info'] ?></td>
 			<td><?php echo date('y-m-d',$v['time']) ?></td>
 			

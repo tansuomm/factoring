@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-03-20 18:30:37
+-- Generation Time: 2017-03-21 17:24:27
 -- 服务器版本： 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `hd_cases` (
   `time` int(10) NOT NULL COMMENT '发表时间',
   `thumb` varchar(200) NOT NULL COMMENT '图片',
   `content` text NOT NULL COMMENT '内容',
-  `type` tinyint(1) NOT NULL COMMENT '类型0常规1科技',
+  `type` varchar(20) NOT NULL COMMENT '标签',
   `info` varchar(100) NOT NULL COMMENT '第二标签'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

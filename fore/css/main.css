@@ -1082,7 +1082,7 @@ a.accordion-toggle  i{
 *******Case Page CSS******
 **************************/
 .even{
-  background: #f2f2f2;
+  background: #5d5c5c;
   padding-bottom: 40px;
 }
 .old{
@@ -1093,13 +1093,15 @@ a.accordion-toggle  i{
   padding:130px 0;
 }
 .casesection img{
+  border-radius: 15px;
+  -webkit-border-radius:15px;
   width: 100%;
   height: auto;
 }
 .casesection .text{
   font-size: 16px;
-  font-weight: 300;
-  color: #5f5f5f;
+  font-weight: 700;
+  color: #000;
   line-height: 2;
   margin-right: 10px;
 }
@@ -1109,6 +1111,7 @@ a.accordion-toggle  i{
     height: 80px;
     text-align: center;
     color: #fff;
+    font-weight: 400;
     line-height: 30px;
     padding-top: 10px;
 }
@@ -1133,7 +1136,7 @@ a.accordion-toggle  i{
   font-size: 14px;
 }
 .casesection .text span{
-  color: #4e4e4e;
+  color: #000;
 }
 
 /*************************
@@ -1164,6 +1167,20 @@ a.accordion-toggle  i{
 **************************/
 #aboutUs{
   color: #fff;
+}
+#aboutUs .bg-area{
+  border-radius: 15px;
+  padding: 30px;
+  -webkit-border-radius:15px;
+  background: url("../images/about-us-bg.jpg") no-repeat scroll center;
+  background-size: cover;
+}
+#aboutUs .bg-area2{
+  border-radius: 15px;
+  padding: 30px;
+  -webkit-border-radius:15px;
+  background: url("../images/about-us-bg2.jpg") no-repeat scroll center;
+  background-size: cover;
 }
 #aboutUs h2 {
   color:#fff;

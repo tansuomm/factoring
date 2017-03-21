@@ -33,12 +33,12 @@ $config = array(
 			array(
 				'field'	=>	'title',
 				'label'	=> '标题',
-				'rules'	=> 'required|min_length[5]'
+				'rules'	=> 'required|min_length[4]'
 				),
 			array(
 				'field'	=>	'type',
 				'label'	=> '类型',
-				'rules'	=> 'required|integer'
+				'rules'	=> 'required'
 				),
 			array(
 				'field'	=>	'info',

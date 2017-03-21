@@ -38,10 +38,13 @@
 	</tr>
 	<tr>
 		<td class="tableleft">类型</td>
-		<td>
+		<td><input placeholder="案例分类(科技)" type="text" name="type" value="<?php echo set_value('type') ?>"  />
+		<?php echo form_error('type', '<span>', '</span>') ?>
+		</td>
+		<!-- <td>
 			<input type="radio" name="type" value="0"<?php echo set_radio('type', '0', TRUE) ?>/> 常规案例
 			<input type="radio" name="type" value="1"<?php echo set_radio('type', '1') ?>/> 科技案例
-		</td>
+		</td> -->
 	</tr>
 	<tr>
 		<td class="tableleft">说明</td>
